@@ -1,0 +1,210 @@
+insert into login
+(
+   user_name,
+   password
+)
+values
+(
+   'ameshari',
+   'Q@2weras'
+),
+
+(
+   'mkommi',
+   'Q@2weras'
+),
+
+(
+   'vijayap',
+   'Q@2weras'
+),
+
+(
+   'anushre',
+   'Q@2weras'
+),
+
+(
+   'zakirhus',
+   'Q@2weras'
+),
+
+(
+   'mannansh',
+   'Q@2weras'
+);
+insert into customer
+(
+   cust_id,
+   first_name,
+   last_name,
+   area,
+   plot_no,
+   house_no,
+   user_name,
+   house_type,
+   locality,
+   property_registration_date
+)
+values
+(
+   344,
+   'Ameen',
+   'Shariff',
+   1200,
+   '77',
+   '990',
+   'ameshari',
+   'Penthouses',
+   'Thanisandra',
+   '2019-05-19'
+),
+
+(
+   345,
+   'Zakir',
+   'Hussain',
+   1890,
+   '32',
+   '547',
+   'zakirhus',
+   'Penthouses',
+   'Thanisandra',
+   '2019-08-19'
+),
+
+(
+   346,
+   'Vijaya',
+   'Patil',
+   1190,
+   '23',
+   '244',
+   'vijayap',
+   'Farmhouses',
+   'White_Field',
+   '2019-10-20'
+),
+
+(
+   347,
+   'Anusha',
+   'Rekula',
+   1677,
+   '98',
+   '128',
+   'anushre',
+   'Villas',
+   'HBR_Layout',
+   '2019-10-19'
+),
+
+(
+   123,
+   'Mahesh',
+   'Kommi',
+   1500,
+   '90',
+   '667',
+   'mkommi',
+   'Eco_friendly_Homes',
+   'White_Field',
+   '2019-08-19'
+),
+
+(
+   126,
+   'Mannan',
+   'Shariff',
+   1478,
+   '67',
+   '223',
+   'mannansh',
+   'Apartments_and_Flats',
+   'HBR_Layout',
+   '2019-10-20'
+);
+insert into admin
+(
+   user_name,
+   password,
+   type
+)
+values
+(
+   'ajmalio',
+   'Q@2weras',
+   'admin'
+);
+insert into monthly_bill
+(
+	bill_no,
+	amount,
+	bill_date,
+	bill_paid,
+	customer_id
+)
+values
+(
+	1001,
+	7700.0,
+	'2019-06-19',
+	'false',
+	344
+),
+(
+	1002,
+	7700.0,
+	'2019-07-19',
+	'false',
+	344
+),
+(
+	1003,
+	7700.0,
+	'2019-08-19',
+	'false',
+	344
+),
+(
+	1004,
+	7700.0,
+	'2019-09-19',
+	'false',
+	344
+),
+(
+	1005,
+	7700.0,
+	'2019-10-19',
+	'false',
+	344
+),
+(
+	1006,
+	11150.0,
+	'2019-09-19',
+	'false',
+	345
+),
+(
+	1007,
+	11150.0,
+	'2019-10-19',
+	'false',
+	345
+),
+(
+	1008,
+	8400.0,
+	'2019-09-19',
+	'false',
+	123
+),
+(
+	1009,
+	8400.0,
+	'2019-10-19',
+	'false',
+	123
+);
