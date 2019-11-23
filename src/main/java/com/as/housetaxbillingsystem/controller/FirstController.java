@@ -3,6 +3,7 @@ package com.as.housetaxbillingsystem.controller;
 import java.text.ParseException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,11 +12,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 //import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.as.housetaxbillingsystem.entity.Admin;
 import com.as.housetaxbillingsystem.entity.Customer;
 import com.as.housetaxbillingsystem.entity.Login;
 import com.as.housetaxbillingsystem.entity.MonthlyBill;
 import com.as.housetaxbillingsystem.exception.InvalidCustomerException;
 import com.as.housetaxbillingsystem.exception.NoAdminFoundException;
+import com.as.housetaxbillingsystem.repo.AdminRepo;
 import com.as.housetaxbillingsystem.repo.BillRepo;
 import com.as.housetaxbillingsystem.service.AdminService;
 import com.as.housetaxbillingsystem.service.LoginService;
@@ -25,7 +28,7 @@ import com.as.housetaxbillingsystem.service.LoginService;
  *
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin()
 //@CrossOrigin(origins = "http://ameenshariff.github.io")
 public class FirstController {
 
@@ -37,6 +40,9 @@ public class FirstController {
 
 	@Autowired
 	private AdminService adminService;
+	
+	@Autowired
+	private AdminRepo adminRepo;
 
 	/**
 	 * @param bill saving bill to database
@@ -49,6 +55,16 @@ public class FirstController {
 	@GetMapping("/hello")
 	public void hello() {
 		System.out.println("hello");
+	}
+	
+	@PostMapping("/addAdmin")
+	public void addAdmin(@RequestBody Admin admin) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12); // Strength set as 12
+		String encodedPassword = encoder.encode(admin.getPassword());
+		System.out.println("Encoded password "+encodedPassword);
+		admin.setPassword(encodedPassword);
+		admin.setType("admin");
+		adminRepo.save(admin);
 	}
 
 	/**

@@ -13,7 +13,7 @@ public class Login {
 	@Id
 	@Column(length = 20)
 	private String userName;
-	@Column(length = 12)
+//	@Column(length = 12)
 	private String password;
 
 	public Login() {

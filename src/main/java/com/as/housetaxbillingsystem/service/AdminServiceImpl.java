@@ -2,6 +2,7 @@ package com.as.housetaxbillingsystem.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.as.housetaxbillingsystem.entity.Admin;
@@ -42,7 +43,7 @@ public class AdminServiceImpl implements AdminService {
 		}
 
 		if (adminFromDb != null) {
-			if (adminFromDb.getPassword().equals(password))
+			if (new BCryptPasswordEncoder().matches(password, adminFromDb.getPassword()))
 				return true;
 			else
 				return false;
