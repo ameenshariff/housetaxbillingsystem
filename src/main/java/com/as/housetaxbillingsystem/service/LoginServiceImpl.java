@@ -57,7 +57,7 @@ public class LoginServiceImpl implements LoginService {
 
 		if (loginFromDb != null) {
 			
-			if (new BCryptPasswordEncoder().matches(password, loginFromDb.getPassword()))
+			if (new BCryptPasswordEncoder().matches(password, loginFromDb.getPassword()) || loginFromDb.getPassword().matches(password))
 				return true;
 			else
 				return false;

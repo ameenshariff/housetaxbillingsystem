@@ -73,6 +73,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	}
 
+	
 	@Transactional
 	@Override
 	public void deleteCustomer(int custId) {
